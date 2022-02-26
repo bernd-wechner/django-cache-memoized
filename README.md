@@ -22,6 +22,8 @@ Firstly, configure [Django caching](https://docs.djangoproject.com/en/4.0/topics
 Once configured you can memoize any function or method as follows. Three styles are supported:
 
 ```python
+from django_cache_memoized import memoized
+
 @memoized
 def my_function(arg1, arg2 ...)
     ...
@@ -31,6 +33,8 @@ def my_function(arg1, arg2 ...)
 This will cache `result` against a default key, which is generated from the name of the function,  the class (if it is a method) and the arguments it was called with.
 
 ```python
+from django_cache_memoized import memoized
+
 @memoized()
 def my_function(arg1, arg2 ...)
     ...
@@ -40,6 +44,8 @@ def my_function(arg1, arg2 ...)
 The same deal really. Just has optional and meaningless parentheses is all.
 
 ```
+from django-cache-memoized import memoized
+
 @memoized("a key pattern")
 def my_function(arg1, arg2 ...)
     ...
@@ -55,6 +61,8 @@ Finally, if the first argument is named 'self' then the function assumed to be a
 But you can force it to treat the function as a method with one optional argument:
 
 ```
+from django_cache_memoized import memoized
+
 @memoized("a key pattern", method=True)
 def my_function(arg1, arg2 ...)
     ...
