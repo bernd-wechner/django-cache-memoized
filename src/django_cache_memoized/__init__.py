@@ -99,10 +99,10 @@ def memoized(function_or_key_pattern=None, method=False):
             found = {}
 
             # Methods by convention have the first argument "self". Even if it's
-            # not a method, setting a local varials 'self' is fraught with issues
+            # not a method, setting a local variable 'self' is fraught with issues
             # And so we need to remap it. Also if we've explicitly decorated a method
-            # we remap the first argument. We call it 'selfie' interanally, but in provided
-            # key_patterns, accept 'self' as a reference.
+            # we remap the first argument. We call it 'selfie' interanally, but in
+            # provided key_patterns, accept 'self' as a reference.
             if seeking[0] == 'self' or is_method:
                 selfie = args[0]
                 found['selfie'] = selfie
