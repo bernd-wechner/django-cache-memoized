@@ -134,7 +134,7 @@ def memoized(function_or_key_pattern=None, method=False):
                 # If we did not find all that we seek by consuming args, consume kwargs
                 if seeking:
                     for kwarg, val in kwargs.items():
-                        if kwarg in seeking:
+                        if kwarg in seeking.copy():
                             # Should never happen, but if someone calls the decorated function
                             # with more args than the original function can accept that's clearly
                             # an erroneous call.
@@ -148,7 +148,7 @@ def memoized(function_or_key_pattern=None, method=False):
 
                     if seeking:
                         # Any that remain we can check for default values
-                        for arg in seeking:
+                        for arg in seeking.copy():
                             props = allargs[arg]
                             if props.default != props.empty:
                                 pos = seeking.index(arg)
